@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+strong{
+    font-weight: bold;
+}
+
 body {
     font-family: 'Roboto';
 }
@@ -116,7 +120,7 @@ button {
 
 footer {
     background-color: #F2F2F2;
-    padding: 30px;
+    padding-top: 30px;
     margin: 0 auto;
 }
 
@@ -205,11 +209,16 @@ footer h2 {
         display: none;
     }
 
+    footer{
+        padding: 10px;
+    }
+
     .container-ultimos-pedidos {
         justify-content: center;
         display: flex;
         flex-direction: column;
-
+        width: 100%;
+        margin: 0 auto;
     }
 
     .produto.pronto img {
