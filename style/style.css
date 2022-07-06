@@ -1,0 +1,153 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto';
+    background-color: #E5E5E5;
+}
+
+header {
+    background-color: #404EED;
+    padding: 16px;
+    padding-left: 60px;
+}
+
+button{
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    font-size: 20px;
+    font-weight: 400;
+    color: #FFFFFF;
+    background-color: #C4C4C4;
+}
+
+.toda-pagina {
+    display: flex;
+}
+
+.container-opcoes {
+    background-color: #E5E5E5;
+    width: 600px;
+    padding: 50px;
+    margin: 0 auto;
+}
+
+.container-opcoes-1{
+    margin-bottom: 50px;
+}
+
+.opcoes-produtos{
+    display: flex;
+    justify-content: space-between;
+}
+
+.container-opcoes h2{
+    font-size: 25px;
+    font-weight: 500;
+    color: #232323; 
+    margin-bottom: 15px;
+}
+
+.container-opcoes input{
+    padding: 10px;
+    width: 100%;
+    font-size: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    outline: none;
+    border: none;
+}
+
+.fundo{
+    width: 130px;
+    height: 130px;
+    border-radius: 80px;
+    background-color: blueviolet;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    background-color: #F2F2F2;
+    border: 1px solid #C4C4C4;
+}
+
+.produto img {
+    width: 100px;
+    height: 100px;
+}
+
+.produto-tecido img {
+    width: 80px;
+    height: 80px;
+}
+
+.produto h3{
+    text-align: center;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.produto-tecido h3{
+    text-align: center;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.container-modelo {
+    background-color: #404EED;
+    justify-content: center;
+    display: flex;
+    padding: 100px;
+}
+
+footer {
+    background-color:#F2F2F2;
+    padding: 30px;
+}
+.container-ultimos-pedidos{
+    margin: 0 auto;
+    padding: 10px 50px 10px 50px;
+}
+.container-ultimos-pedidos h2{
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #232323;
+}
+
+.opcaoes-alinhar{
+    text-align: center;
+}
+
+.fundo-pronto{
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFFFFF;
+    padding: 15px;
+}
+
+.fundo-pronto img{
+    width: 150px;
+    height: 150px;
+}
+
+.selecionado{
+    border: 3px solid #404EED;
+    border-radius: 80px;
+}
+
+@media (max-width: 900px){
+
+    header{
+
+    }
+
+    .container-modelo{
+        display: none;
+    }
+}
