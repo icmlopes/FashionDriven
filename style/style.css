@@ -4,7 +4,6 @@
 
 body {
     font-family: 'Roboto';
-    background-color: #E5E5E5;
 }
 
 header {
@@ -32,12 +31,12 @@ button {
 .toda-pagina {
     display: flex;
     margin-top: 90px;
+    background-color: #FCFCFC;
 }
 
 .container-opcoes {
-    background-color: #E5E5E5;
-    width: 600px;
-    padding: 50px;
+    width: 50%;
+    padding: 110px;
     margin: 0 auto;
 }
 
@@ -58,6 +57,7 @@ button {
 }
 
 .container-opcoes input {
+    background-color: #F2F2F2;
     padding: 10px;
     width: 100%;
     font-size: 20px;
@@ -81,6 +81,7 @@ button {
     display: flex;
     background-color: #F2F2F2;
     border: 1px solid #C4C4C4;
+    cursor: pointer;
 }
 
 .produto img {
@@ -104,7 +105,13 @@ button {
     background-color: #404EED;
     justify-content: center;
     display: flex;
-    padding: 100px;
+    width: 50%;
+    padding: 50px;
+}
+
+.container-modelo img{
+    width: 100%;
+    height: auto;
 }
 
 footer {
@@ -114,16 +121,19 @@ footer {
 }
 
 .container-ultimos-pedidos {
-    width: 75%;
-    margin: 0 auto;
-    /* padding: 10px 500px 10px 250px; */
+    width: 80%;
+    /* margin: 0 auto; */
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 200px 10px 80px;
 }
 
-.container-ultimos-pedidos h2 {
-    font-size: 20px;
+footer h2 {
+    font-size: 25px;
     font-weight: 500;
     margin-bottom: 20px;
     color: #232323;
+    padding-left: 80px;
 }
 
 .opcoes-produtos-prontos {
@@ -196,15 +206,10 @@ footer {
     }
 
     .container-ultimos-pedidos {
-        align-items: center;
         justify-content: center;
         display: flex;
         flex-direction: column;
 
-    }
-
-    .container-ultimos-pedidos h2 {
-        text-align: center;
     }
 
     .produto.pronto img {
