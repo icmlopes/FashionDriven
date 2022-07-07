@@ -32,6 +32,10 @@ button {
     background-color: #C4C4C4;
 }
 
+.confirmado{
+    background-color: #404EED;
+}
+
 .toda-pagina {
     display: flex;
     margin-top: 90px;
@@ -99,10 +103,10 @@ button {
     height: 80px;
 }
 
-.produto h3 {
+.produto-texto h3{
     text-align: center;
-    margin-top: 10px;
     font-size: 20px;
+    margin-top: 10px;
 }
 
 .container-modelo {
@@ -130,6 +134,7 @@ footer {
     display: flex;
     justify-content: space-between;
     padding: 10px 200px 10px 80px;
+    overflow-x: scroll;
 }
 
 footer h2 {
@@ -147,6 +152,7 @@ footer h2 {
 
 .opcaoes-alinhar {
     text-align: center;
+    cursor: pointer;
 }
 
 .fundo-pronto {
@@ -158,6 +164,7 @@ footer h2 {
     background-color: #FFFFFF;
     padding: 15px;
     margin-bottom: 15px;
+    margin-right: 20px;
 }
 
 .fundo-pronto img {
@@ -168,7 +175,7 @@ footer h2 {
 
 .selecionado {
     border: 3px solid #404EED;
-    border-radius: 80px;
+    border-radius: 100px;
 }
 
 @media (max-width: 900px) {
@@ -201,7 +208,7 @@ footer h2 {
         height: 60px;
     }
 
-    .produto h3 {
+    .produto-texto h3{
         font-size: 16px;
     }
 
