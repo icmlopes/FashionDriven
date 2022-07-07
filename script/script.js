@@ -138,7 +138,7 @@ function telaInicial() {
 
             <input type="url" placeholder="Insira o link">
 
-            <button onclick="enviarPedido();">Confirmar pedido</button>
+            <button onclick="enviarPedido()" disabled="true">Confirmar pedido</button>
 
         </div>
 
@@ -175,7 +175,7 @@ function exibirUltimosPedidos(resposta) {
         listaUltimosPedidos.innerHTML += `
         <div class="opcoes-alinhar">
             <div class="produto pronto">
-                <div class="fundo-pronto">
+                <div class="fundo-pronto" onclick="comprarCamisaPronta('${lista[i].owner}','${lista[i].image}','${lista[i].neck}','${lista[i].material}','${lista[i].model}','${lista[i].author}')">
                     <img src="${lista[i].image}">
                     <h4><strong>Criador: </strong> ${lista[i].owner}</h4>
                 </div>
@@ -243,6 +243,8 @@ function ativarBotao() {
         const botaoConfirmarPedido = document.querySelector('button');
 
         botaoConfirmarPedido.classList.add('confirmado');
+
+        botaoConfirmarPedido.removeAttribute('disabled');
     }
 }
 
@@ -277,9 +279,29 @@ function enviarPedido() {
 //Função retorno quando o pedido der certo
 function confirmacaoPedido() {
     alert('Obaa! Seu pedido está confirmado!! =D Agradecemos a preferência');
+    pegarUltimosPedidos();
 }
 
 //Função retorno quando o pedido não der certo
 function erroPedido() {
     alert('Ops, não foi possível processar sua encomenda');
+}
+
+function comprarCamisaPronta(owner, image, neck, material, model, author){
+    console.log(owner, image, neck, material, model, author);
+
+    confirm('Aperte OK caso queira adquirir esse produto! ;)');
+
+    solitacao = {
+        model: model,
+        neck: neck,
+        material: material,
+        image: image,
+        owner: owner,
+        author: author
+    }
+
+    let promessa = axios.post('https://mock-api.driven.com.br/api/v4/shirts-api/shirts', solitacao);
+    promessa.then(confirmacaoPedido);
+    promessa.catch(erroPedido);
 }
