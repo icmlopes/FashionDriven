@@ -52,7 +52,9 @@ button {
     margin-bottom: 50px;
 }
 
-.opcoes-produtos {
+.opcoes-modelo, 
+.opcoes-gola,
+.opcoes-tecido {
     display: flex;
     justify-content: space-between;
 }
@@ -101,6 +103,14 @@ button {
 .produto.tecido img {
     width: 80px;
     height: 80px;
+}
+
+/* Quando no produto-texto possuir a classe selecionado a classe .fundo.modelo possuirão as propriedades abaixo */
+.produto-texto.selecionado .produto.modelo, 
+.produto-texto.selecionado .produto.gola, 
+.produto-texto.selecionado .produto.tecido{
+    border: 3px solid #404EED;
+    border-radius: 100px;
 }
 
 .produto-texto h3{
@@ -171,11 +181,6 @@ footer h2 {
     width: 150px;
     height: 150px;
     object-fit: cover;
-}
-
-.selecionado {
-    border: 3px solid #404EED;
-    border-radius: 100px;
 }
 
 @media (max-width: 900px) {

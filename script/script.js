@@ -1,8 +1,12 @@
+let criador;
 let modeloEscolhido;
 let golaEscolhida;
 let tecidoEscolhido;
 
-/* prompt("Qual o seu nome?"); */
+function perguntarNome(){
+    criador = prompt("Qual o seu nome?");
+    console.log(criador);
+}
 
 let exibir = document.querySelector('.exibir')
 
@@ -14,13 +18,12 @@ function telaInicial(){
         <div class="container-opcoes">
 
             <div class="container-opcoes-1">
-
                 <h2>Escolha o modelo</h2>
 
-                <div class="opcoes-produtos">
+                <div class="opcoes-modelo">
 
-                    <div class="produto-texto">
-                        <div class="produto modelo" onclick="selecionarModelo(this)">
+                    <div class="produto-texto" onclick="selecionarModelo(this, 'T-shirt')">
+                        <div class="produto modelo">
                             <div class="fundo modelo">
                                 <img src="./images/tshirt.png">
                             </div>
@@ -28,8 +31,8 @@ function telaInicial(){
                         <h3>T-shirt</h3>
                     </div>
                     
-                    <div class="produto-texto">
-                        <div class="produto modelo" onclick="selecionarModelo(this)">
+                    <div class="produto-texto"  onclick="selecionarModelo(this, 'Camiseta')">
+                        <div class="produto modelo">
                             <div class="fundo">
                                 <img src="./images/Camiseta.png">
                             </div>
@@ -37,8 +40,8 @@ function telaInicial(){
                         <h3>Camiseta</h3>
                     </div>
 
-                    <div class="produto-texto">
-                        <div class="produto modelo" onclick="selecionarModelo(this)">
+                    <div class="produto-texto"  onclick="selecionarModelo(this,'Manga longa')">
+                        <div class="produto modelo">
                             <div class="fundo">
                                 <img src="./images/Mangalonga.png">
                             </div>
@@ -54,10 +57,10 @@ function telaInicial(){
 
                 <h2>Escolha a gola</h2>
 
-                <div class="opcoes-produtos">
+                <div class="opcoes-gola">
 
-                    <div class="produto-texto">
-                        <div class="produto gola" onclick="selecionarGola(this)">
+                    <div class="produto-texto" onclick="selecionarGola(this, 'Gola V')">
+                        <div class="produto gola">
                             <div class="fundo">
                                 <img src="./images/GolaV.png">
                             </div>
@@ -65,8 +68,8 @@ function telaInicial(){
                         <h3>Gola V</h3>
                     </div>
 
-                    <div class="produto-texto">
-                        <div class="produto gola" onclick="selecionarGola(this)">
+                    <div class="produto-texto" onclick="selecionarGola(this,'Gola Redonda')">
+                        <div class="produto gola">
                             <div class="fundo">
                                 <img src="./images/GolaRedonda.png">
                             </div>
@@ -74,8 +77,8 @@ function telaInicial(){
                         <h3>Gola Redonda</h3>
                     </div>    
 
-                    <div class="produto-texto">
-                        <div class="produto gola" onclick="selecionarGola(this)">
+                    <div class="produto-texto" onclick="selecionarGola(this, 'Gola Polo')">
+                        <div class="produto gola">
                             <div class="fundo">
                                 <img src="./images/GolaPolo.png">
                             </div>
@@ -91,10 +94,10 @@ function telaInicial(){
 
                 <h2>Escolha o tecido</h2>
 
-                <div class="opcoes-produtos">
+                <div class="opcoes-tecido">
 
-                    <div class="produto-texto">
-                        <div class="produto tecido" onclick="selecionarTecido(this)">
+                    <div class="produto-texto" onclick="selecionarTecido(this, 'Seda')">
+                        <div class="produto tecido">
                             <div class="fundo">
                                 <img src="./images/Seda.png">
                             </div>
@@ -102,8 +105,8 @@ function telaInicial(){
                         <h3>Seda</h3>
                     </div>
 
-                    <div class="produto-texto">
-                        <div class="produto tecido" onclick="selecionarTecido(this)">
+                    <div class="produto-texto" onclick="selecionarTecido(this, 'Algodão')">
+                        <div class="produto tecido">
                             <div class="fundo">
                                 <img src="./images/Algod+úo.png">
                             </div>
@@ -111,8 +114,8 @@ function telaInicial(){
                         <h3>Algodão</h3>
                     </div>
 
-                    <div class="produto-texto">
-                        <div class="produto tecido" onclick="selecionarTecido(this)">
+                    <div class="produto-texto" onclick="selecionarTecido(this, 'Poliéster')">
+                        <div class="produto tecido">
                             <div class="fundo">
                                 <img src="./images/Poliester.png">
                             </div>
@@ -144,7 +147,8 @@ function telaInicial(){
         </div>
     </footer>
     `
-    pegarUltimosPedidos()
+    pegarUltimosPedidos();
+    perguntarNome();
 }
 
 telaInicial();
@@ -173,51 +177,60 @@ function exibirUltimosPedidos(resposta){
 }
 
 //Função que adicona a classe selecionado ao modelo clicado
-function selecionarModelo(elemento){
-    const opcaoClicada = document.querySelector('.fundo.modelo .selecionado');
+function selecionarModelo(elemento, modeloClicado){
+    const opcaoClicada = document.querySelector('.opcoes-modelo .selecionado');
 
     if (opcaoClicada !== null){
         opcaoClicada.classList.remove('selecionado');
     }
     elemento.classList.add('selecionado');
 
-    modeloEscolhido = opcaoClicada;
+    modeloEscolhido = modeloClicado;
+
+    //recuperar valor da manga selecionada - igual fiz no drivenEats
 
     fazerPedido()
 }
 
 //Função que adicona a classe selecionado a gola clicado
-function selecionarGola(elemento){
-    const opcaoClicada = document.querySelector('.fundo.gola .selecionado');
+function selecionarGola(elemento, golaClicada){
+    const opcaoClicada = document.querySelector('.opcoes-gola .selecionado');
 
     if (opcaoClicada !== null){
         opcaoClicada.classList.remove('selecionado');
     }
     elemento.classList.add('selecionado');
 
-    golaEscolhida = opcaoClicada;
+    golaEscolhida = golaClicada;
 
     fazerPedido()
 }
 
 //Função que adicona a classe selecionado ao tecido clicado
-function selecionarTecido(elemento){
-    const opcaoClicada = document.querySelector('.fundo.tecido .selecionado');
+function selecionarTecido(elemento, tecidoClicado){
+    
+    const opcaoClicada = document.querySelector('.opcoes-tecido .selecionado');
 
     if (opcaoClicada !== null){
         opcaoClicada.classList.remove('selecionado');
     }
     elemento.classList.add('selecionado');
 
-    tecidoEscolhido = opcaoClicada;
+    tecidoEscolhido = tecidoClicado;
 
     fazerPedido()
 }
 
 //Função que verifica se já tem todas as opções clicadas e só depois altera a cor do botão
 function fazerPedido(){
+
+    console.log(modeloEscolhido);
+    console.log(golaEscolhida);
+    console.log(tecidoEscolhido);
+
     if (modeloEscolhido !== undefined && golaEscolhida !== undefined && tecidoEscolhido !== undefined){
         console.log("Deu certo");
+
         const botaoConfirmarPedido = document.querySelector('button');
         
         botaoConfirmarPedido.classList.add('confirmado');
