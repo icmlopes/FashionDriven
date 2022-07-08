@@ -135,7 +135,7 @@ function telaInicial() {
                 </div>
 
             </div>
-
+        
             <input type="url" placeholder="Insira o link">
 
             <button onclick="enviarPedido()" disabled="true">Confirmar pedido</button>
@@ -230,6 +230,14 @@ function selecionarTecido(elemento, tecidoClicado) {
     ativarBotao()
 }
 
+//Aqui tem a função que 
+let input = document.querySelector('input');
+input.addEventListener('keyup', ()=>{
+    imagem = document.querySelector('input').value;
+    ativarBotao();
+});
+
+
 //Função que verifica se já tem todas as opções clicadas e só depois altera a cor do botão
 function ativarBotao() {
 
@@ -237,7 +245,8 @@ function ativarBotao() {
     console.log(golaEscolhida);
     console.log(tecidoEscolhido);
 
-    if (modeloEscolhido !== undefined && golaEscolhida !== undefined && tecidoEscolhido !== undefined) {
+    console.log(imagem);
+    if (modeloEscolhido !== undefined && golaEscolhida !== undefined && tecidoEscolhido !== undefined && imagem !== undefined) {
         console.log("Deu certo");
 
         const botaoConfirmarPedido = document.querySelector('button');
@@ -299,7 +308,7 @@ function comprarCamisaPronta(owner, image, neck, material, model, author) {
             neck: neck,
             material: material,
             image: image,
-            owner: criador, //Alterei isso aqui para o nome de quem acessou a página, verificar se está funcionando já que bugou aqui
+            owner: criador, //Alterei isso aqui para o nome de quem acessou a página e não mais o nome de quem criou a blusa escolhida
             author: author
         }
 
