@@ -9,7 +9,7 @@ let solitacao = [{
     material: "",
     image: "",
     owner: "",
-    author:""
+    author: ""
 }]
 
 function perguntarNome() {
@@ -259,7 +259,7 @@ function pegarUltimosPedidos() {
 
 //Função que envia o pedido para o AXIOS
 function enviarPedido() {
-    
+
     imagem = document.querySelector('input').value;
 
     solitacao = {
@@ -287,21 +287,28 @@ function erroPedido() {
     alert('Ops, não foi possível processar sua encomenda');
 }
 
-function comprarCamisaPronta(owner, image, neck, material, model, author){
+function comprarCamisaPronta(owner, image, neck, material, model, author) {
     console.log(owner, image, neck, material, model, author);
 
-    confirm('Aperte OK caso queira adquirir esse produto! ;)');
+    let confirmacaoInteresse = confirm('Aperte OK caso queira adquirir esse produto! ;)');
 
-    solitacao = {
-        model: model,
-        neck: neck,
-        material: material,
-        image: image,
-        owner: owner,
-        author: author
+    if (confirmacaoInteresse === true) {
+        console.log(owner, image, neck, material, model, author)
+        solitacao = {
+            model: model,
+            neck: neck,
+            material: material,
+            image: image,
+            owner: criador, //Alterei isso aqui para o nome de quem acessou a página, verificar se está funcionando já que bugou aqui
+            author: author
+        }
+
+        let promessa = axios.post('https://mock-api.driven.com.br/api/v4/shirts-api/shirts', solitacao);
+        promessa.then(confirmacaoPedido);
+        promessa.catch(erroPedido);
     }
 
-    let promessa = axios.post('https://mock-api.driven.com.br/api/v4/shirts-api/shirts', solitacao);
-    promessa.then(confirmacaoPedido);
-    promessa.catch(erroPedido);
+    else {
+        return;
+    }
 }
